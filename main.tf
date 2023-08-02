@@ -30,7 +30,7 @@ module "webserver" {
 
   resource_group_tags = {
     Name      = var.name
-    Owner     = "lucy.davinhart@hashicorp.com"
+    Owner     = var.owner
     Purpose   = "Terraform TFC Demo Org (FancyCorp)"
     TTL       = "24h"
     Terraform = "true"

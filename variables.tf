@@ -20,3 +20,8 @@ variable "name" {
   type        = string
   description = "A name to identify the your Webserver"
 }
+
+variable "owner" {
+  type        = string
+  description = "Who owns these resources?"
+}
