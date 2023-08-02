@@ -21,7 +21,7 @@ module "webserver" {
   source  = "app.terraform.io/fancycorp/webserver/azure"
   version = "~> 2.0"
 
-  resource_group_name = "${var.name} - ${terraform.workspace}"
+  resource_group_name = var.name
   location            = var.location
 
   # For an example PR...
@@ -29,7 +29,7 @@ module "webserver" {
   machine_size = var.machine_size
 
   resource_group_tags = {
-    Name      = "${var.name} - ${terraform.workspace}"
+    Name      = var.name
     Owner     = "lucy.davinhart@hashicorp.com"
     Purpose   = "Terraform TFC Demo Org (FancyCorp)"
     TTL       = "24h"
