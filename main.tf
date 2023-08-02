@@ -21,15 +21,15 @@ module "webserver" {
   source  = "app.terraform.io/fancycorp/webserver/azure"
   version = "~> 2.0"
 
-  resource_group_name = "strawb-tfc-demo-${terraform.workspace}"
-  location            = "UK South"
+  resource_group_name = "${var.name} - ${terraform.workspace}"
+  location            = var.location
 
   # For an example PR...
   # Standard_B8ms will cause a policy-fail
   machine_size = var.machine_size
 
   resource_group_tags = {
-    Name      = "StrawbTest"
+    Name      = "${var.name} - ${terraform.workspace}"
     Owner     = "lucy.davinhart@hashicorp.com"
     Purpose   = "Terraform TFC Demo Org (FancyCorp)"
     TTL       = "24h"
